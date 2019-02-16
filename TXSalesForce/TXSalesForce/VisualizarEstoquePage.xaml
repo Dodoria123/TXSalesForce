@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TXSalesForce"
+             x:Class="TXSalesForce.VisualizarEstoquePage"
+             Title="Estoque">
+    <!--<ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="validPersonTemplate">
+                <ViewCell>
+                    ...
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="invalidPersonTemplate">
+                <ViewCell>
+                    ...
+                </ViewCell>
+            </DataTemplate>
+            <local:ProdutoDataTemplateSelector x:Key="produtoDataTemplateSelector"
+                ValidTemplate="{StaticResource validPersonTemplate}"
+                InvalidTemplate="{StaticResource invalidPersonTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>-->
+
+    <ContentPage.Content>
+        <StackLayout Margin="10,10,10,10">
+            <Label Text="Produtos com estoque baixo:"
+               HorizontalOptions="CenterAndExpand"
+               BackgroundColor="White"
+               TextColor="Black"
+               FontSize="20"/>
+            <ListView x:Name="lstEstoqueBaixo" ItemsSource="" HorizontalOptions="FillAndExpand" BackgroundColor="White" ItemTapped="lstEstoqueBaixo_ItemTapped" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding nomeProduto}" Detail="{Binding qtdDisponivel}" TextColor="Red"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Text="Produtos com estoque normal:"
+               HorizontalOptions="CenterAndExpand"
+               BackgroundColor="White"
+               TextColor="Black"
+               FontSize="20"/>
+            <ListView x:Name="lstEstoque" ItemsSource="" HorizontalOptions="FillAndExpand" BackgroundColor="White" ItemTapped="lstEstoque_ItemTapped" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding nomeProduto}" Detail="{Binding qtdDisponivel}" TextColor="Black"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--<ListView x:Name="lstEstoque" ItemTemplate="{StaticResource productDataTemplateSelector}" ItemTapped="lstEstoque_ItemTapped" />-->
+        </StackLayout>
+        <!--<StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>-->
+    </ContentPage.Content>
+</ContentPage>

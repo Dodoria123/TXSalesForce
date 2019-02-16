@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TXSalesForce.VisualizarClientePage">
+    <ContentPage.Content>
+        <StackLayout Margin="10,10,10,10">
+            <Label Text="DADOS DO CLIENTE:"
+                   HorizontalOptions="CenterAndExpand"
+                   BackgroundColor="White"
+                   TextColor="Black"
+                   FontSize="20"/>
+            <Label x:Name="lblId" Text="{Binding id}" IsVisible="False" />
+            <Label x:Name="lblNome" Text="{Binding nomeParlamentar}" BackgroundColor="LightGray" FontSize="15"/>
+            <Label x:Name="lblEndereco" Text="{Binding endereco}" FontSize="15"/>
+            <Label x:Name="lblCidade" Text="{Binding cidade}" BackgroundColor="LightGray" FontSize="15"/>
+            <Label x:Name="lblUF" Text="{Binding UF}" FontSize="15"/>
+            <Label x:Name="lblTotalGasto" Text="{Binding totalGasto}" FontSize="15"/>
+            <Label Text="Pedidos do Cliente:"
+               HorizontalOptions="CenterAndExpand"
+               BackgroundColor="White"
+               TextColor="Black"
+               FontSize="16"/>
+            <ListView x:Name="lstPedidosCliente" ItemsSource="" HorizontalOptions="FillAndExpand" BackgroundColor="White">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding dataPedido}" Detail="{Binding totalPagarString}" TextColor="Red"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--<StackLayout>
+                <Label Text="Welcome to Xamarin.Forms!"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" />
+            </StackLayout>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

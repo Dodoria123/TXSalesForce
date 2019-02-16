@@ -4,11 +4,33 @@
              xmlns:local="clr-namespace:TXSalesForce"
              x:Class="TXSalesForce.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
+    <!--<StackLayout>
+        --><!-- Place new controls here --><!--
         <Label Text="Welcome to Xamarin.Forms!" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
+    </StackLayout>-->
+
+    <StackLayout Margin="10,38,10,20">
+        <!-- Place new controls here -->
+        <Label Text="TX Sales Force!"
+               HorizontalOptions="CenterAndExpand"
+               BackgroundColor="White"
+               TextColor="#29B6F6"
+               FontSize="25"/>
+        <Label Text=""
+               HorizontalOptions="CenterAndExpand"
+               BackgroundColor="White"
+               FontSize="25"/>
+        <ActivityIndicator x:Name="actInd" Color="Red" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}" />
+        <Button Text="Criar Pedido de Venda" Clicked="Button_CriarPedidoVenda_Clicked"
+                BackgroundColor="#0288D1"/>
+        <Button Text="Visualizar Pedidos de Venda" Clicked="Button_VisualizarPedidosVenda_Clicked"
+                BackgroundColor="#0288D1"/>
+        <Button Text="Visualizar Estoque" Clicked="Button_VisualizarEstoque_Clicked"
+                BackgroundColor="#0288D1"/>
+        <Button Text="Visualizar Clientes" Clicked="Button_VisualizarCliente_Clicked"
+                BackgroundColor="#0288D1"/>
     </StackLayout>
 
 </ContentPage>

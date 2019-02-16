@@ -13,5 +13,25 @@ namespace TXSalesForce
         {
             InitializeComponent();
         }
+
+        private void Button_CriarPedidoVenda_Clicked(object sender, EventArgs e)
+        {
+            //Navigation.PushAsync(new ListaTodosDeputadosPage());
+        }
+
+        private void Button_VisualizarPedidosVenda_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new VisualizarPedidosVendaPage());
+        }
+
+        private void Button_VisualizarEstoque_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new VisualizarEstoquePage());
+        }
+
+        private void Button_VisualizarCliente_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ListaClientesPage());
+        }
     }
 }
