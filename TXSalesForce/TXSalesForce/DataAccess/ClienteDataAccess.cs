@@ -23,7 +23,7 @@ namespace TXSalesForce
 
             this.Clientes = new ObservableCollection<Cliente>(database.Table<Cliente>());
 
-            this.DeleteAllClientes();
+            //this.DeleteAllClientes();
 
             if (!database.Table<Cliente>().Any())
             {

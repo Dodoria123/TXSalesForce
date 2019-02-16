@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TXSalesForce.CriarPedidoVendaPage"
+             Title="Cadastrar Pedido">
+    <ContentPage.Content>
+        <StackLayout Margin="10,10,10,10">
+            <Label Text="Escolha um cliente:"
+                   HorizontalOptions="Start"
+                   BackgroundColor="White"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   FontSize="20"/>
+            <ListView x:Name="lstListaClientes" ItemsSource="" HorizontalOptions="FillAndExpand" BackgroundColor="White">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding nome}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Text="Escolha os Produtos:"
+                   HorizontalOptions="Start"
+                   BackgroundColor="White"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   FontSize="20"/>
+            <ListView x:Name="lstProdutos" ItemsSource="" HorizontalOptions="FillAndExpand" BackgroundColor="White" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--<TextCell Text="{Binding nomeProduto}" Detail="{Binding qtdDisponivelString}" TextColor="Red"/>-->
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding nomeProduto}" WidthRequest="300" FontAttributes="Bold"></Label>
+                                <Button Text="-" Clicked="Button_SubtrairQtd_Clicked" BackgroundColor="#0288D1" HorizontalOptions="End" WidthRequest="35" CommandParameter="{Binding qtdSelecionada}"/>
+                                <Label Text="{Binding qtdSelecionada}" HorizontalOptions="End" HorizontalTextAlignment="Center" WidthRequest="30"></Label>
+                                <Button Text="+" Clicked="Button_AdicionarQtd_Clicked" BackgroundColor="#0288D1" HorizontalOptions="End" WidthRequest="35" CommandParameter="{Binding qtdSelecionada}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Total a pagar em R$: "
+                   HorizontalOptions="Start"
+                   BackgroundColor="White"
+                   FontSize="20"/>
+                <Label x:Name="lblTotalPagar" FontAttributes="Bold" HorizontalOptions="End" VerticalTextAlignment="End"></Label>
+            </StackLayout>
+            <Button Text="Salvar Pedido" Clicked="Button_SalvarPedido_Clicked" BackgroundColor="#0288D1"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

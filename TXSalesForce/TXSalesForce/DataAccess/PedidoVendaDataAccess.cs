@@ -25,7 +25,7 @@ namespace TXSalesForce.DataAccess
 
             this.PedidosVenda = new ObservableCollection<PedidoVenda>(database.Table<PedidoVenda>());
 
-            this.DeleteAllPedidoVendas();
+            //this.DeleteAllPedidoVendas();
 
             if (!database.Table<PedidoVenda>().Any())
             {
@@ -36,8 +36,6 @@ namespace TXSalesForce.DataAccess
         public void AdicionarPedidosVenda()
         {
             this.PedidosVenda.Add(new PedidoVenda { idCliente = 1, totalPagar = 12, dataPedido = DateTime.Now });
-            this.PedidosVenda.Add(new PedidoVenda { idCliente = 1, totalPagar = 55.6, dataPedido = DateTime.Now });
-            this.PedidosVenda.Add(new PedidoVenda { idCliente = 1, totalPagar = 110.8, dataPedido = DateTime.Now });
             this.SaveAllPedidoVendas();
         }
 

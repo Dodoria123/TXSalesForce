@@ -35,14 +35,22 @@ namespace TXSalesForce
             lstListaPedidosVenda.ItemsSource = llstPedidosVenda;
         }
 
-        private void Button_ConsultarPedidoVendaPorID_Clicked(object sender, EventArgs e)
-        {
-            //TODO
-        }
-
         private void Button_ConsultarPedidoVenda_Clicked(object sender, EventArgs e)
         {
-            //TODO
+            IList<PedidoVenda> llstPedidoVenda = new List<PedidoVenda>();
+            PedidoVenda lobjPedidoVenda = null;
+
+            llstPedidoVenda = llstPedidosVenda.Where(x => x.dataPedido.Date >= filtroDataInicial.Date && 
+                                                          x.dataPedido.Date <= filtroDataFinal.Date).ToList();
+
+            if (ddlListaPedidos.SelectedItem != null)
+            {
+                lobjPedidoVenda = (PedidoVenda)ddlListaPedidos.SelectedItem;
+
+                llstPedidoVenda = llstPedidoVenda.Where(x => x.id == lobjPedidoVenda.id).ToList();
+            }
+
+            lstListaPedidosVenda.ItemsSource = llstPedidoVenda;
         }
     }
 }

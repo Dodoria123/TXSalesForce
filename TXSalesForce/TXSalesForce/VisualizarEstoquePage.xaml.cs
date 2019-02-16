@@ -27,33 +27,7 @@ namespace TXSalesForce
         {
             ProdutoDataAccess lobjProdutoDataAccess = new ProdutoDataAccess();
 
-            //client = new HttpClient();
-            //var json = await client.GetStringAsync($"http://meucongressonacional.com/api/001/deputado");
-            //var dados = JsonConvert.DeserializeObject<IList<Deputado>>(json);
             var dados = lobjProdutoDataAccess.GetFilteredProdutos();
-
-            //IList<TextCell> llstCells = new List<TextCell>();
-
-            //foreach (var lobjProduto in dados)
-            //{
-            //    TextCell cell = new TextCell();
-
-            //    cell.Text = lobjProduto.nomeProduto;
-            //    cell.Detail = lobjProduto.qtdDisponivel.ToString();
-
-            //    if (lobjProduto.qtdDisponivel < 10)
-            //    {
-            //        cell.TextColor = Color.Red;
-            //    }
-            //    else
-            //    {
-            //        cell.TextColor = Color.Black;
-            //    }
-
-            //    llstCells.Add(cell);
-            //}
-
-            //lstEstoque.ItemsSource = llstCells.AsEnumerable();
 
             lstEstoque.ItemsSource = dados.Where(x => x.qtdDisponivel >= 10).ToList();
             lstEstoqueBaixo.ItemsSource = dados.Where(x => x.qtdDisponivel < 10).ToList();
@@ -63,14 +37,12 @@ namespace TXSalesForce
         {
             var myListView = (ListView)sender;
             var estoque = (Produto)myListView.SelectedItem;
-            //Navigation.PushAsync(new DetalhamentoDeputadoPage(deputado.id));
         }
 
         private void lstEstoqueBaixo_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var myListView = (ListView)sender;
             var estoque = (Produto)myListView.SelectedItem;
-            //Navigation.PushAsync(new DetalhamentoDeputadoPage(deputado.id));
         }
     }
 }

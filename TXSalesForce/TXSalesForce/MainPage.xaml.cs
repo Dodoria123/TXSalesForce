@@ -16,7 +16,7 @@ namespace TXSalesForce
 
         private void Button_CriarPedidoVenda_Clicked(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(new ListaTodosDeputadosPage());
+            Navigation.PushAsync(new CriarPedidoVendaPage());
         }
 
         private void Button_VisualizarPedidosVenda_Clicked(object sender, EventArgs e)

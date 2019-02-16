@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TXSalesForce.VisualizarPedidosVendaPage">
+             x:Class="TXSalesForce.VisualizarPedidosVendaPage"
+             Title="Pedidos de Venda">
     <ContentPage.Content>
         <StackLayout Margin="10,10,10,10">
             <Label Text="Período Inicial:"
@@ -9,24 +10,23 @@
                BackgroundColor="White"
                TextColor="Black"
                FontSize="15"/>
-            <DatePicker>
+            <DatePicker x:Name="filtroDataInicial">
             </DatePicker>
             <Label Text="Período Final:"
                HorizontalOptions="StartAndExpand"
                BackgroundColor="White"
                TextColor="Black"
                FontSize="15"/>
-            <DatePicker>
+            <DatePicker x:Name="filtroDataFinal">
             </DatePicker>
-            <Label Text="Filtro por código do pedido:"
+            <Label Text=" "
                HorizontalOptions="StartAndExpand"
                BackgroundColor="White"
-               TextColor="Black"
                FontSize="15"/>
             <Picker x:Name="ddlListaPedidos"
-                Title="Escolha um Pedido"
+                Title="Filtro por código do pedido:"
                 ItemDisplayBinding="{Binding id}"/>
-            <Button Text="Consultar" Clicked="Button_ConsultarPedidoVendaPorID_Clicked"
+            <Button Text="Consultar" Clicked="Button_ConsultarPedidoVenda_Clicked"
                 BackgroundColor="#0288D1"/>
             <Label Text="PEDIDOS:"
                HorizontalOptions="CenterAndExpand"

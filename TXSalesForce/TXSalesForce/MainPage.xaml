@@ -1,16 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:TXSalesForce"
              x:Class="TXSalesForce.MainPage">
-
-    <!--<StackLayout>
-        --><!-- Place new controls here --><!--
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>-->
-
     <StackLayout Margin="10,38,10,20">
         <!-- Place new controls here -->
         <Label Text="TX Sales Force!"
@@ -32,5 +23,4 @@
         <Button Text="Visualizar Clientes" Clicked="Button_VisualizarCliente_Clicked"
                 BackgroundColor="#0288D1"/>
     </StackLayout>
-
 </ContentPage>

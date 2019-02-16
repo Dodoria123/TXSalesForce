@@ -73,6 +73,16 @@ namespace TXSalesForce.Entities
             }
         }
 
+        public string qtdDisponivelString
+        {
+            get
+            {
+                return "Quantidade: " + _qtdDisponivel.ToString();
+            }
+        }
+
+        public int qtdSelecionada { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string propertyName)

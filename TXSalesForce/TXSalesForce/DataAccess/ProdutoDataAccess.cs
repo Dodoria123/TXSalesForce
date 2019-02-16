@@ -23,7 +23,7 @@ namespace TXSalesForce.DataAccess
 
             this.Produtos = new ObservableCollection<Produto>(database.Table<Produto>());
 
-            this.DeleteAllProdutos();
+            //this.DeleteAllProdutos();
 
             if (!database.Table<Produto>().Any())
             {

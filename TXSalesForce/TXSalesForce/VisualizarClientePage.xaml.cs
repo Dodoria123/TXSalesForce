@@ -28,19 +28,14 @@ namespace TXSalesForce
 
         public void DetalhamentoCliente()
         {
-            //client = new HttpClient();
-            //var json = await client.GetStringAsync($"http://meucongressonacional.com/api/001/deputado/{idDeputado}");
-            //var dados = JsonConvert.DeserializeObject<Deputado>(json);
-
-            //DeputadoImage = new Uri(dados.fotoURL);
-            //imgDeputado.Source = DeputadoImage;
-
             ClienteDataAccess lobjClienteDataAccess = new ClienteDataAccess();
             PedidoVendaDataAccess lobjPedidoVendaDataAccess = new PedidoVendaDataAccess();
             ProdutoPedidoVendaDataAccess lobjProdutoPedidoVendaDataAccess = new ProdutoPedidoVendaDataAccess();
             ProdutoDataAccess lobjProdutoDataAccess = new ProdutoDataAccess();
 
-            Cliente lobjCliente = lobjClienteDataAccess.GetCliente(idCliente);            
+            Cliente lobjCliente = lobjClienteDataAccess.GetCliente(idCliente);
+
+            visualizarClientePage.Title = lobjCliente.nome;
 
             //Lista de pedidos do cliente em questão
             IList<PedidoVenda> llstPedidosVenda = lobjPedidoVendaDataAccess.GetFilteredPedidosPorIdCliente(idCliente).ToList();
@@ -49,19 +44,18 @@ namespace TXSalesForce
 
             foreach (var pedido in llstPedidosVenda)
             {
-                double totalPedido = 0;
+                //IList<ProdutoPedidoVenda> llstProdutoPedidoVenda = lobjProdutoPedidoVendaDataAccess.GetFilteredProdutosPorPedido(pedido.id).ToList();
 
-                IList<ProdutoPedidoVenda> llstProdutoPedidoVenda = lobjProdutoPedidoVendaDataAccess.GetFilteredProdutosPorPedido(pedido.id).ToList();
+                //foreach(var produtoPedido in llstProdutoPedidoVenda)
+                //{
+                //    Produto lobjProdtuo = new Produto();
 
-                foreach(var produtoPedido in llstProdutoPedidoVenda)
-                {
-                    Produto lobjProdtuo = new Produto();
+                //    lobjProdtuo = lobjProdutoDataAccess.GetProduto(produtoPedido.idProduto);
+                //    ldouTotalGasto = ldouTotalGasto + lobjProdtuo.preçoProduto;
+                //    pedido.totalPagar = totalPedido;
+                //}
 
-                    lobjProdtuo = lobjProdutoDataAccess.GetProduto(produtoPedido.idProduto);
-                    ldouTotalGasto = ldouTotalGasto + lobjProdtuo.preçoProduto;
-                    totalPedido = totalPedido + lobjProdtuo.preçoProduto;
-                    pedido.totalPagar = totalPedido;
-                }
+                ldouTotalGasto = ldouTotalGasto + pedido.totalPagar;
             }
 
             lblId.Text = lobjCliente.id.ToString();
